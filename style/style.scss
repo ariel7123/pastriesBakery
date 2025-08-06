@@ -70,7 +70,7 @@ li:hover {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 a:hover {
   color: var(--secondary-color);
@@ -89,72 +89,7 @@ button {
 }
 
 ////////////////////////////
-.navBar {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  margin: 3rem 7rem;
-  background-color: #0e5d6a;
-  border-radius: 25px;
-  
-  a{
-    color: #d6e2f5;
-  }
-  
-  &__left {
-    display: flex;
-    &--logo {
-      background-image: url("./../../images/image.png");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      width: 80px;
-      height: 80px;
-      display: inline-block;
-      // border: 1px solid black;
-      border-radius: 25px;
-    }
-
-    .nav-item {
-      position: relative;
-      padding: 0 1rem;
-
-      &::after {
-        content: '|';
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        color: #d6e2f5; // איזה צבע שבא לך
-        font-size: 1rem; // יתאים לטקסט
-        pointer-events: none;
-    }
-
-    &:last-child::after {
-      content: '';
-    }
-    }
-  }
-
-  &__right {
-    
-    &--cart{
-      border-radius: 10px;
-      width: 48px;
-      height: 48px;
-      margin-right: 1rem;
-
-      .fa-cart-shopping{
-        font-size: 1.5rem ;
-        color: rgb(212, 140, 85);
-        // margin: 1rem ;
-      }
-
-
-    }
-  }
-}
+@import 'navBar'
 
 ////////////////////////////////
 // .cardContainer {
