@@ -1,11 +1,16 @@
+.navbar{
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
 .navBar {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 3rem 7rem;
+  margin: 0 0;
   background-color: #0e5d6a;
-  border-radius: 25px;
+  border-radius: 0 0 25px 25px;
   
   a{
     color: #d6e2f5;
@@ -22,7 +27,8 @@
       height: 80px;
       display: inline-block;
       // border: 1px solid black;
-      border-radius: 25px;
+      border-radius: 0 0 0 25px;
+
     }
 
     .nav-item {

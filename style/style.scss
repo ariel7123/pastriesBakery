@@ -4,25 +4,27 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-}
-* {
-  margin: 0;
+}  
+* { 
+  margin: 0; 
   padding: 0;
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
   color: black;
   letter-spacing: 0;
   // direction: rtl; /* Right-to-left text direction */
-
+   
   // -- Variables for colors
   --primary-color: rgb(247, 247, 247);
   --secondary-color: rgb(23, 58, 120);
   --third-color: rgb(0, 0, 0);
-}
-body {
+}      
+body {     
   background: #f8fafc;
   color: #222;
   transition: background 0.2s, color 0.2s;
+  width: 90%;
+  margin: 0 auto;
 }
 // body.dark-theme {
 //   background: #181c24;
@@ -89,7 +91,88 @@ button {
 }
 
 ////////////////////////////
-@import 'navBar'
+@import 'navBar';
+
+.main{
+  margin: 5rem auto;
+
+  &__contentHeader{
+    text-align: center;
+
+    &--header{
+      font-family: 'Nunito', sans-serif;
+    }
+  }
+}
+
+.adminPanel {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+  background: #f4f4f4;
+  padding: 18px 12px;
+  border-radius: 18px;
+  box-shadow: 0 3px 8px #0002;
+  width: fit-content;
+  margin: 2rem auto;
+}
+.adminPanel__left {
+  display: flex;
+  gap: 1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 120px;
+}
+.form-group--checkbox {
+  justify-content: flex-end;
+}
+label {
+  font-size: 0.95em;
+  color: #23335b;
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+}
+input[type="text"],
+input[type="number"] {
+  padding: 7px 10px;
+  border: 1.5px solid #d4d4e2;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  font-size: 1em;
+  transition: border 0.2s;
+}
+input:focus {
+  border: 1.5px solid #586be4;
+  background: #eef3ff;
+}
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #e76d7a;
+  cursor: pointer;
+}
+.adminPanel__right--submit {
+  padding: 10px 22px;
+  background: linear-gradient(90deg, #e76d7a, #e1a3bf);
+  border: none;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 1.08em;
+  font-weight: bold;
+  box-shadow: 0 1px 3px #0002;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.adminPanel__right--submit:hover {
+  background: linear-gradient(90deg, #ff5477, #e1a3bf 80%);
+  box-shadow: 0 3px 9px #d44a8a33;
+}
+
 
 ////////////////////////////////
 // .cardContainer {
