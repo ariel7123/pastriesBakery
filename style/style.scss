@@ -109,8 +109,64 @@ $label-color: #23335b;
       font-family: 'Nunito', sans-serif;
     }
   }
+
+  &__productCont{
+
+    &--product{
+
+      .card-img-top{
+        height: 25vh;
+        width: 20vw;
+      }
+
+      .priceAndStock{
+
+        .priceProduct{
+
+        }
+
+        .StockProduct{
+
+        }
+      }
+    }
+  }
 }
 
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 75%;
+  max-height: 75vh;
+  margin: auto;
+
+
+    &__item {
+    flex: 0 0 250px;
+    max-width: 100%;
+
+    img{
+      height: 25vh;
+    }
+
+    .p-descripttion{
+      font-size: 0.7rem;
+    }
+
+    .fa-file-lines{
+      font-size: 1.1rem;
+      color: #1e90ff;
+    }
+
+    .fa-dollar-sign, .fa-check-circle{
+      font-size: 1.2rem;
+      color: green;
+    }
+  }
+}
 
 .adminPanel {
   display: flex;
