@@ -149,39 +149,43 @@ button:hover {
 .main__contentHeader--header {
   font-family: "Nunito", sans-serif;
 }
-.main__productCont--product .card-img-top {
-  height: 25vh;
-  width: 20vw;
-}
-.cardContainer {
+.main__productsCont {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
   justify-content: center;
-  max-width: 75%;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   max-height: 75vh;
   margin: auto;
 }
-.cardContainer__item {
-  flex: 0 0 250px;
-  max-width: 100%;
+.main__productsCont--product {
+  margin-bottom: 1rem;
+  border-radius: 25px;
+  border-radius: 18px;
+  box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13), 0 1.5px 3px 0 rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0.2, 0.2, 1) 0s, transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1) 0s;
+  background: #fff;
 }
-.cardContainer__item img {
+.main__productsCont--product:hover {
+  box-shadow: 0 8px 32px 0 rgba(23, 58, 120, 0.22), 0 1.5px 12px 0 rgba(0, 0, 0, 0.12);
+  transform: translateY(-6px) scale(1.01);
+}
+.main__productsCont--product .card-img-top {
   height: 25vh;
+  width: 25vw;
+  border-radius: 25px;
 }
-.cardContainer__item .p-descripttion {
-  font-size: 0.7rem;
+.main__productsCont--product .card-body .nameProduct {
+  text-align: center;
+  margin: 1.5rem;
 }
-.cardContainer__item .fa-file-lines {
-  font-size: 1.1rem;
-  color: #1e90ff;
+.main__productsCont--product .card-body .priceAndStock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
 }
-.cardContainer__item .fa-dollar-sign, .cardContainer__item .fa-check-circle {
-  font-size: 1.2rem;
-  color: green;
-}
-
 .adminPanel {
   display: flex;
   align-items: center;
@@ -192,7 +196,6 @@ button:hover {
   box-shadow: 0 6px 24px #0004, 0 1.5px 6px #c66bb94a;
   width: fit-content;
   margin: 2rem 2rem 0 2rem;
-  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;

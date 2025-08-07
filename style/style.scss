@@ -110,63 +110,102 @@ $label-color: #23335b;
     }
   }
 
-  &__productCont{
+  &__productsCont{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      max-height: 75vh;
+      margin: auto;
 
     &--product{
+        margin-bottom: 1rem;
+        border-radius: 25px;
+
+        border-radius: 18px;
+        box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13), 0 1.5px 3px 0 rgba(0,0,0,0.08);
+        transition:
+          box-shadow 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s,
+          transform 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s;
+        background: #fff;
+      
+        &:hover{
+          box-shadow:
+            0 8px 32px 0 rgba(23, 58, 120, 0.22),
+            0 1.5px 12px 0 rgba(0,0,0,0.12);
+          transform: translateY(-6px) scale(1.01);
+        }
 
       .card-img-top{
         height: 25vh;
-        width: 20vw;
+        width: 25vw;
+        border-radius: 25px;
+
       }
 
-      .priceAndStock{
+      .card-body{
 
+        .nameProduct{
+          text-align: center;
+          margin: 1.5rem;
+        }
+
+        .priceAndStock{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 1.2rem;
+      
+      
         .priceProduct{
-
+      
         }
-
+      
         .StockProduct{
-
+      
         }
+      }
       }
     }
   }
 }
 
-.cardContainer {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
-  max-width: 75%;
-  max-height: 75vh;
-  margin: auto;
+// .cardContainer {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+//   justify-content: center;
+//   max-width: 75%;
+//   max-height: 75vh;
+//   margin: auto;
 
 
-    &__item {
-    flex: 0 0 250px;
-    max-width: 100%;
+//     &__item {
+//     flex: 0 0 250px;
+//     max-width: 100%;
 
-    img{
-      height: 25vh;
-    }
+//     img{
+//       height: 25vh;
+//     }
 
-    .p-descripttion{
-      font-size: 0.7rem;
-    }
+//     .p-descripttion{
+//       font-size: 0.7rem;
+//     }
 
-    .fa-file-lines{
-      font-size: 1.1rem;
-      color: #1e90ff;
-    }
+//     .fa-file-lines{
+//       font-size: 1.1rem;
+//       color: #1e90ff;
+//     }
 
-    .fa-dollar-sign, .fa-check-circle{
-      font-size: 1.2rem;
-      color: green;
-    }
-  }
-}
+//     .fa-dollar-sign, .fa-check-circle{
+//       font-size: 1.2rem;
+//       color: green;
+//     }
+//   }
+// }
 
 .adminPanel {
   display: flex;
@@ -179,7 +218,7 @@ $label-color: #23335b;
   width: fit-content;
   margin: 2rem 2rem 0 2rem;
 
-  position: fixed;
+  // position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
