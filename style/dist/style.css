@@ -149,6 +149,38 @@ button:hover {
 .main__contentHeader--header {
   font-family: "Nunito", sans-serif;
 }
+.main__productCont--product .card-img-top {
+  height: 25vh;
+  width: 20vw;
+}
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  max-width: 75%;
+  max-height: 75vh;
+  margin: auto;
+}
+.cardContainer__item {
+  flex: 0 0 250px;
+  max-width: 100%;
+}
+.cardContainer__item img {
+  height: 25vh;
+}
+.cardContainer__item .p-descripttion {
+  font-size: 0.7rem;
+}
+.cardContainer__item .fa-file-lines {
+  font-size: 1.1rem;
+  color: #1e90ff;
+}
+.cardContainer__item .fa-dollar-sign, .cardContainer__item .fa-check-circle {
+  font-size: 1.2rem;
+  color: green;
+}
 
 .adminPanel {
   display: flex;
