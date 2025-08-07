@@ -2,7 +2,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  padding-bottom: 120px;
 }
 
 * {
@@ -21,6 +21,8 @@ body {
   background: #f8fafc;
   color: #222;
   transition: background 0.2s, color 0.2s;
+  width: 90%;
+  margin: 0 auto;
 }
 
 :root {
@@ -47,7 +49,7 @@ li:hover {
 }
 
 a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 a:hover {
@@ -66,14 +68,20 @@ button:hover {
   background-color: #f4dac1;
 }
 
+.navbar {
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
 .navBar {
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 3rem 7rem;
+  margin: 0 0;
   background-color: #0e5d6a;
-  border-radius: 25px;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 0 6px 24px #0004, 0 1.5px 6px #c66bb94a;
 }
 .navBar a {
   color: #d6e2f5;
@@ -89,7 +97,7 @@ button:hover {
   width: 80px;
   height: 80px;
   display: inline-block;
-  border-radius: 25px;
+  border-radius: 0 0 0 25px;
 }
 .navBar__left .nav-item {
   position: relative;
@@ -108,6 +116,19 @@ button:hover {
 .navBar__left .nav-item:last-child::after {
   content: "";
 }
+.navBar__left .nav-item .nav-link {
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  transition: background 0.3s cubic-bezier(0.59, 1.36, 0.71, 0.32), transform 0.2s cubic-bezier(0.59, 1.36, 0.71, 0.32);
+}
+.navBar__left .nav-item .nav-link:hover, .navBar__left .nav-item .nav-link:focus {
+  background: #224072;
+  color: #ffe14d;
+  transform: translateY(-6px) scale(1.08) rotate(-2deg);
+  box-shadow: 0 6px 18px 0 rgba(33, 60, 102, 0.18);
+  cursor: pointer;
+}
 .navBar__right--cart {
   border-radius: 10px;
   width: 48px;
@@ -117,4 +138,96 @@ button:hover {
 .navBar__right--cart .fa-cart-shopping {
   font-size: 1.5rem;
   color: #d48c55;
+}
+
+.main {
+  margin: 5rem auto;
+}
+.main__contentHeader {
+  text-align: center;
+}
+.main__contentHeader--header {
+  font-family: "Nunito", sans-serif;
+}
+
+.adminPanel {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #0e5d6a;
+  padding: 18px 15px;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 6px 24px #0004, 0 1.5px 6px #c66bb94a;
+  width: fit-content;
+  margin: 2rem 2rem 0 2rem;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  z-index: 9999;
+}
+.adminPanel__left {
+  display: flex;
+  gap: 1rem;
+}
+.adminPanel__left--stock {
+  display: flex;
+  align-items: center;
+  width: 5rem;
+}
+.adminPanel__right {
+  display: flex;
+  align-items: flex-end;
+}
+.adminPanel__right--submit {
+  padding: 10px 22px;
+  background: linear-gradient(90deg, #e76d7a, #e1a3bf);
+  border: none;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 1.08em;
+  font-weight: bold;
+  box-shadow: 0 1px 3px #0002;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.adminPanel__right--submit:hover {
+  background: linear-gradient(90deg, #ff5477, #e1a3bf 80%);
+  box-shadow: 0 3px 9px #d44a8a33;
+}
+.adminPanel__label {
+  font-size: 0.95em;
+  color: #23335b;
+  font-weight: 500;
+  margin-bottom: 2px;
+  letter-spacing: 0.02em;
+}
+.adminPanel__label--hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+}
+.adminPanel__input {
+  padding: 7px 10px;
+  border: 1.5px solid #d4d4e2;
+  border-radius: 8px;
+  outline: none;
+  background: #fff;
+  font-size: 1em;
+  transition: border 0.2s;
+}
+.adminPanel__input:focus {
+  border: 1.5px solid #586be4;
+  background: #eef3ff;
+}
+.adminPanel__input--checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #e76d7a;
+  cursor: pointer;
 }
