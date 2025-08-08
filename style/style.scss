@@ -90,6 +90,7 @@ button {
   }
 }    
 
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 ////////////////////////////
 @import 'navBar';
 
@@ -100,36 +101,47 @@ $submit-start: #e76d7a;
 $submit-end: #e1a3bf;
 $label-color: #23335b;
 .main{
-  margin: 5rem auto;
+  margin:  auto;
 
   &__contentHeader{
     text-align: center;
 
     &--header{
-      font-family: 'Nunito', sans-serif;
+      margin-bottom: 2rem;
+      
+      h2{
+        font-family: "Playwrite AU QLD", cursive;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-decoration: underline;
+      }
     }
   }
 
   &__productsCont{
       display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 1.5rem;
-      max-height: 75vh;
+      justify-content: center;
+      gap: 5rem;
       margin: auto;
+      max-width: 1200px;
+      align-items: center;
+      max-height: 75vh;
 
     &--product{
-        margin-bottom: 1rem;
-        border-radius: 25px;
+      flex: 1 1 calc(33.333% - 1.5rem);
+      max-width: calc(30.0% - 1.5rem); // לא יחרוג משליש
+      min-width: 300px; 
 
-        border-radius: 18px;
-        box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13), 0 1.5px 3px 0 rgba(0,0,0,0.08);
-        transition:
-          box-shadow 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s,
-          transform 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s;
-        background: #fff;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13), 0 1.5px 3px 0 rgba(0,0,0,0.08);
+      transition:
+        box-shadow 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s,
+        transform 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s;
+      background: #fff;
+      overflow: hidden;
       
         &:hover{
           box-shadow:
@@ -139,10 +151,31 @@ $label-color: #23335b;
         }
 
       .card-img-top{
-        height: 25vh;
-        width: 25vw;
-        border-radius: 25px;
+        width: 100%;
+        height: clamp(150px, 20vh, 250px); 
+        
+        object-fit: cover; /* Cropping the image instead of distorting it */ /* for img */
+        background-size: cover; /* for backgroung-img */
+        
+        border-radius: 18px 18px 0 0;
 
+        @media (max-width: 576px) { // Phones
+          .card-img-top {
+            height: 150px;
+          }
+        }
+
+        @media (min-width: 768px) and (max-width: 1199px) { // Tablets
+          .card-img-top {
+            height: 220px;
+          }
+        }
+
+        @media (min-width: 1200px) { // Wide
+          .card-img-top {
+            height: 250px;
+          }
+        }
       }
 
       .card-body{
@@ -157,10 +190,16 @@ $label-color: #23335b;
           align-items: center;
           justify-content: center;
           gap: 1.2rem;
-      
+          padding: 0 0 1.5rem;
       
         .priceProduct{
       
+        }
+
+        .separator {
+          color: #aaa; /* או כל צבע שתרצה */
+          font-weight: bold;
+          user-select: none; /* For unselect*/
         }
       
         .StockProduct{
@@ -218,7 +257,7 @@ $label-color: #23335b;
   width: fit-content;
   margin: 2rem 2rem 0 2rem;
 
-  // position: fixed;
+  position: fixed;
   left: 50%;
   transform: translateX(-50%);
   bottom: 0;
