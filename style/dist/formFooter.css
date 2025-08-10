@@ -1,0 +1,84 @@
+.adminPanel {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: #0e5d6a;
+  padding: 18px 15px;
+  border-radius: 25px 25px 0 0;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: fit-content;
+  margin: 2rem 2rem 0 2rem;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  z-index: 9999;
+}
+.adminPanel__left {
+  display: flex;
+  gap: 1rem;
+}
+.adminPanel__left--stock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  width: auto;
+  flex-wrap: nowrap;
+}
+.adminPanel__right {
+  display: flex;
+  align-items: flex-end;
+}
+.adminPanel__right--submit {
+  padding: 10px 22px;
+  background: linear-gradient(90deg, #e76d7a, #e1a3bf);
+  border: none;
+  color: #fff;
+  border-radius: 9px;
+  font-size: 1.08em;
+  font-weight: bold;
+  box-shadow: 0 1px 3px #0002;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.adminPanel__right--submit:hover {
+  background: linear-gradient(90deg, #ff5477, #e1a3bf 80%);
+  box-shadow: 0 3px 9px #d44a8a33;
+}
+.adminPanel .form-group {
+  padding: 0.3rem 0.7rem;
+  border: 1.5px solid #d4d4e2;
+  border-radius: 8px;
+  background: #fff;
+  transition: border 0.2s;
+}
+.adminPanel .form-group:focus-within {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+}
+.adminPanel .form-group--checkbox {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 1rem;
+  cursor: pointer;
+}
+.adminPanel input:not([type=checkbox]),
+.adminPanel input.form-control:not([type=checkbox]) {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0.35rem 0.6rem;
+}
+.adminPanel input:not([type=checkbox]):focus,
+.adminPanel input.form-control:not([type=checkbox]):focus {
+  outline: none;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.adminPanel input[type=checkbox] {
+  accent-color: var(--secondary-color);
+}
