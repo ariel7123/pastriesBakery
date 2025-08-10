@@ -16,3 +16,16 @@ var products = [
     new product("sweet mix", new URL("./images/dp-07564_1024x682.webp"), 250, true),
     new product("the backlawa", new URL("./images/DP-09542.webp"), 300, true),
 ];
+var cardtcount = 0;
+function displayProducts() {
+    var _this = this;
+    var productContainer = document.getElementById("product-container");
+    if (!productContainer)
+        return;
+    products.forEach(function (product, index) {
+        var productCard = document.createElement("div");
+        productCard.className = "product-card";
+        productCard.innerHTML = "\n            <img src=\"" + _this.productImage + "\" alt=\"" + _this.productName + "\" />\n            <h3>" + _this.productName + "</h3>\n            <p>Price: $" + _this.productPrice + "</p>\n            <button onclick=\"addToCart(" + index + ")\">Add to Cart</button>\n        ";
+        productContainer.appendChild(productCard);
+    });
+}
