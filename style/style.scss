@@ -4,22 +4,22 @@ body {
   padding: 0;
   // overflow-x: hidden; // Do not turn it on!!
   padding-bottom: 120px; // For footer-adminPanel
-}  
-* { 
-  margin: 0; 
+}
+* {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
   color: black;
   letter-spacing: 0;
   // direction: rtl; /* Right-to-left text direction */
-   
+
   // -- Variables for colors
   --primary-color: rgb(247, 247, 247);
-  --secondary-color: rgb(23, 58, 120);
+  --secondary-color: #0e5d6a;
   --third-color: rgb(0, 0, 0);
-}      
-body {     
+}
+body {
   background: #f8fafc;
   color: #222;
   transition: background 0.2s, color 0.2s;
@@ -85,14 +85,14 @@ body {
 
 button {
   border: none;
-  &:hover{
+  &:hover {
     background-color: #f4dac1;
   }
-}    
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 ////////////////////////////
-@import 'navBar';
+@import "navBar";
 
 $main-bg: #0e5d6a;
 $input-border: #d4d4e2;
@@ -100,16 +100,17 @@ $input-focus: #586be4;
 $submit-start: #e76d7a;
 $submit-end: #e1a3bf;
 $label-color: #23335b;
-.main{
-  margin:  auto;
+.main {
+  margin: auto;
 
-  &__contentHeader{
+  &__contentHeader {
     text-align: center;
 
-    &--header{
+    &--header {
       margin-bottom: 2rem;
-      
-      h2{
+      margin-top: 5rem;
+
+      h2 {
         font-family: "Playwrite AU QLD", cursive;
         font-size: 2.5rem;
         font-weight: bold;
@@ -118,134 +119,100 @@ $label-color: #23335b;
     }
   }
 
-  &__productsCont{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 5rem;
-      margin: auto;
-      max-width: 1200px;
-      align-items: center;
-      max-height: 75vh;
+  &__productsCont {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+    margin: auto;
+    max-width: 1200px;
+    align-items: center;
+    max-height: 75vh;
 
-    &--product{
+    &--product {
       flex: 1 1 calc(33.333% - 1.5rem);
-      max-width: calc(30.0% - 1.5rem); // לא יחרוג משליש
-      min-width: 300px; 
+      max-width: calc(30% - 1.5rem); // לא יחרוג משליש
+      min-width: 300px;
 
       margin-bottom: 1rem;
       cursor: pointer;
       border-radius: 18px;
-      box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13), 0 1.5px 3px 0 rgba(0,0,0,0.08);
-      transition:
-        box-shadow 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s,
-        transform 0.3s cubic-bezier(0.4,0.2,0.2,1) 0s;
+      box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13),
+        0 1.5px 3px 0 rgba(0, 0, 0, 0.08);
+      transition: box-shadow 0.3s cubic-bezier(0.4, 0.2, 0.2, 1) 0s,
+        transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1) 0s;
       background: #fff;
       overflow: hidden;
-      
-        &:hover{
-          box-shadow:
-            0 8px 32px 0 rgba(23, 58, 120, 0.22),
-            0 1.5px 12px 0 rgba(0,0,0,0.12);
-          transform: translateY(-6px) scale(1.01);
-        }
 
-      .card-img-top{
+      &:hover {
+        box-shadow: 0 8px 32px 0 rgba(23, 58, 120, 0.22),
+          0 1.5px 12px 0 rgba(0, 0, 0, 0.12);
+        transform: translateY(-6px) scale(1.01);
+      }
+
+      .card-img-top {
         width: 100%;
-        height: clamp(150px, 20vh, 250px); 
-        
+        height: clamp(200px, 25vh, 300px);
+
         object-fit: cover; /* Cropping the image instead of distorting it */ /* for img */
         background-size: cover; /* for backgroung-img */
-        
+
         border-radius: 18px 18px 0 0;
 
-        @media (max-width: 576px) { // Phones
+        @media (max-width: 576px) {
+          // Phones
           .card-img-top {
             height: 150px;
           }
         }
 
-        @media (min-width: 768px) and (max-width: 1199px) { // Tablets
+        @media (min-width: 768px) and (max-width: 1199px) {
+          // Tablets
           .card-img-top {
             height: 220px;
           }
         }
 
-        @media (min-width: 1200px) { // Wide
+        @media (min-width: 1200px) {
+          // Wide
           .card-img-top {
             height: 250px;
           }
         }
       }
 
-      .card-body{
-
-        .nameProduct{
+      .card-body {
+        .nameProduct {
           text-align: center;
           margin: 1.5rem;
         }
 
-        .priceAndStock{
+        .priceAndStock {
           display: flex;
           align-items: center;
           justify-content: center;
           gap: 1.2rem;
           padding: 0 0 1.5rem;
-      
-        // .priceProduct{
-      
-        // }
 
-        .separator {
-          color: #aaa; /* או כל צבע שתרצה */
-          font-weight: bold;
-          user-select: none; /* For unselect*/
+          // .priceProduct{
+
+          // }
+
+          .separator {
+            color: #aaa; /* או כל צבע שתרצה */
+            font-weight: bold;
+            user-select: none; /* For unselect*/
+          }
+
+          // .StockProduct{
+
+          // }
         }
-      
-        // .StockProduct{
-      
-        // }
-      }
       }
     }
   }
 }
-
-// .cardContainer {
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   gap: 1rem;
-//   justify-content: center;
-//   max-width: 75%;
-//   max-height: 75vh;
-//   margin: auto;
-
-
-//     &__item {
-//     flex: 0 0 250px;
-//     max-width: 100%;
-
-//     img{
-//       height: 25vh;
-//     }
-
-//     .p-descripttion{
-//       font-size: 0.7rem;
-//     }
-
-//     .fa-file-lines{
-//       font-size: 1.1rem;
-//       color: #1e90ff;
-//     }
-
-//     .fa-dollar-sign, .fa-check-circle{
-//       font-size: 1.2rem;
-//       color: green;
-//     }
-//   }
-// }
-
+/////////////////////////////////
 .adminPanel {
   display: flex;
   align-items: center;
@@ -253,7 +220,8 @@ $label-color: #23335b;
   background: $main-bg;
   padding: 18px 15px;
   border-radius: 25px 25px 0 0;
-  box-shadow: 0 6px 24px #0004, 0 1.5px 6px #c66bb94a;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 
+              0 4px 12px rgba(0, 0, 0, 0.2); 
   width: fit-content;
   margin: 2rem 2rem 0 2rem;
 
@@ -263,16 +231,17 @@ $label-color: #23335b;
   bottom: 0;
   z-index: 9999;
 
-
-
   &__left {
     display: flex;
     gap: 1rem;
 
     &--stock {
-      display:flex;
-      align-items:center;
-      width: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      width: auto;
+      flex-wrap: nowrap;
     }
   }
 
@@ -299,97 +268,45 @@ $label-color: #23335b;
     }
   }
 
-  // עיצוב לייבלים
-  &__label {
-    font-size: 0.95em;
-    color: $label-color;
-    font-weight: 500;
-    margin-bottom: 2px;
-    letter-spacing: 0.02em;
-
-    &--hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      border: 0;
-    }
-  }
-
-  // עיצוב אינפוטים
-  &__input {
-    padding: 7px 10px;
+  .form-group {
+    padding: 0.3rem 0.7rem;
     border: 1.5px solid $input-border;
     border-radius: 8px;
-    outline: none;
     background: #fff;
-    font-size: 1em;
     transition: border 0.2s;
-
-    &:focus {
-      border: 1.5px solid $input-focus;
-      background: #eef3ff;
+  
+    &:focus-within {
+      border-color: var(--secondary-color);
+      box-shadow: 0 0 0 2px rgba(255,255,255,.6);
     }
 
     &--checkbox {
-      width: 18px;
-      height: 18px;
-      accent-color: $submit-start;
+      display: flex;
+      align-items: center;
+      white-space: nowrap; 
+      gap: 1rem;
       cursor: pointer;
     }
   }
+
+  input:not([type="checkbox"]),
+  input.form-control:not([type="checkbox"]) {
+    border: 0 !important;
+    box-shadow: none !important;
+    background: transparent;
+    -webkit-appearance: none;
+    appearance: none;
+    padding: .35rem .6rem; 
+  }
+
+  input:not([type="checkbox"]):focus,
+  input.form-control:not([type="checkbox"]):focus {
+    outline: none;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--secondary-color); 
+  }
 }
-
-////////////////////////////////
-// .cardContainer {
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   gap: 1rem;
-//   justify-content: center;
-//   max-width: 75%;
-//   max-height: 75vh;
-//   margin: auto;
-
-//     &__item {
-//     flex: 0 0 250px;
-//     max-width: 100%;
-
-//     img{
-//       height: 25vh;
-//     }
-
-//     .p-descripttion{
-//       font-size: 0.7rem;
-//     }
-
-//     .fa-file-lines{
-//       font-size: 1.1rem;
-//       color: #1e90ff;
-//     }
-
-//     .fa-dollar-sign, .fa-check-circle{
-//       font-size: 1.2rem;
-//       color: green;
-//     }
-//   }
-// }
-
-// .adminPanel {
-//   position: fixed;
-//   bottom: -16px;
-//   left: 0;
-//   width: 100%;
-
-//   &__form {
-//     margin: 0;
-//   padding: 0;
-//   display: flex;
-//   flex-wrap: wrap;
-//   align-items: center;
-//   gap: 0.5rem;
-//   }
-// }
