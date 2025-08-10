@@ -15,7 +15,7 @@ body {
   color: black;
   letter-spacing: 0;
   --primary-color: rgb(247, 247, 247);
-  --secondary-color: rgb(23, 58, 120);
+  --secondary-color: #0e5d6a;
   --third-color: rgb(0, 0, 0);
 }
 
@@ -132,6 +132,9 @@ button:hover {
   cursor: pointer;
 }
 .navBar__right--cart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   width: 48px;
   height: 48px;
@@ -150,6 +153,7 @@ button:hover {
 }
 .main__contentHeader--header {
   margin-bottom: 2rem;
+  margin-top: 5rem;
 }
 .main__contentHeader--header h2 {
   font-family: "Playwrite AU QLD", cursive;
@@ -169,7 +173,7 @@ button:hover {
 }
 .main__productsCont--product {
   flex: 1 1 calc(33.333% - 1.5rem);
-  max-width: calc(30.0% - 1.5rem);
+  max-width: calc(30% - 1.5rem);
   min-width: 300px;
   margin-bottom: 1rem;
   cursor: pointer;
@@ -185,7 +189,7 @@ button:hover {
 }
 .main__productsCont--product .card-img-top {
   width: 100%;
-  height: clamp(150px, 20vh, 250px);
+  height: clamp(200px, 25vh, 300px);
   object-fit: cover;
   /* Cropping the image instead of distorting it */
   /* for img */
@@ -234,7 +238,7 @@ button:hover {
   background: #0e5d6a;
   padding: 18px 15px;
   border-radius: 25px 25px 0 0;
-  box-shadow: 0 6px 24px #0004, 0 1.5px 6px #c66bb94a;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
   width: fit-content;
   margin: 2rem 2rem 0 2rem;
   position: fixed;
@@ -250,7 +254,10 @@ button:hover {
 .adminPanel__left--stock {
   display: flex;
   align-items: center;
-  width: 5rem;
+  justify-content: center;
+  gap: 0.8rem;
+  width: auto;
+  flex-wrap: nowrap;
 }
 .adminPanel__right {
   display: flex;
@@ -272,39 +279,39 @@ button:hover {
   background: linear-gradient(90deg, #ff5477, #e1a3bf 80%);
   box-shadow: 0 3px 9px #d44a8a33;
 }
-.adminPanel__label {
-  font-size: 0.95em;
-  color: #23335b;
-  font-weight: 500;
-  margin-bottom: 2px;
-  letter-spacing: 0.02em;
-}
-.adminPanel__label--hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  border: 0;
-}
-.adminPanel__input {
-  padding: 7px 10px;
+.adminPanel .form-group {
+  padding: 0.3rem 0.7rem;
   border: 1.5px solid #d4d4e2;
   border-radius: 8px;
-  outline: none;
   background: #fff;
-  font-size: 1em;
   transition: border 0.2s;
 }
-.adminPanel__input:focus {
-  border: 1.5px solid #586be4;
-  background: #eef3ff;
+.adminPanel .form-group:focus-within {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
 }
-.adminPanel__input--checkbox {
-  width: 18px;
-  height: 18px;
-  accent-color: #e76d7a;
+.adminPanel .form-group--checkbox {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 1rem;
   cursor: pointer;
+}
+.adminPanel input:not([type=checkbox]),
+.adminPanel input.form-control:not([type=checkbox]) {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0.35rem 0.6rem;
+}
+.adminPanel input:not([type=checkbox]):focus,
+.adminPanel input.form-control:not([type=checkbox]):focus {
+  outline: none;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+.adminPanel input[type=checkbox] {
+  accent-color: var(--secondary-color);
 }
