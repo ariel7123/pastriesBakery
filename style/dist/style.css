@@ -226,6 +226,7 @@ button:hover {
   user-select: none;
   /* For unselect*/
 }
+
 .adminPanel {
   display: flex;
   align-items: center;

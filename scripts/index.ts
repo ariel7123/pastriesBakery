@@ -13,12 +13,18 @@ class product {
 }
 
 const products: product[] = [
-    new product ("mini cockies", new URL("./images/DP-05430.webp"),150,true),
-    new product ("donats", new URL("./images/dp-05501.webp"),120,true),
-    new product ("flavor mafins", new URL("./images/dp-07298_1024x683.webp"),200,true),
-    new product ("cream buns", new URL("./images/dp-07499_1024x683.webp"),180,true),
-    new product ("creamy cockies", new URL("./images/dp-07512.webp"),125,true),
-    new product ("sweet mix", new URL("./images/dp-07564_1024x682.webp"),250,true),
-    new product ("the backlawa", new URL("./images/DP-09542.webp"),300,true),
+    new product ("Lotus Cheese Platter (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dsc08319-1.jpg"),209.00 ,true),
+
+    new product ("Mini flavored crembo tray (24 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dp-07512.jpg"),190.00 ,false),
+
+    new product ("Baby Basque in a luxurious cocotte (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/DP-05430.jpg"),195.00 ,true),
+    
+    new product ("Fairytale muffins with filling and topping (15 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dp-07298_1024x683.jpg"),195.00 ,true),
+    
+    new product ("Mini sponge (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dp-05501.jpg"),185.00 ,true),
+    
+    new product ("Mini Creme Brulee (12 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dp-07499_1024x683.jpg"),159.00 ,true),
+    
+    new product ("Giant baklawat tray 2.5 kilos", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/12/DP-09542.jpg"),249.00 ,true),
 ]
 
