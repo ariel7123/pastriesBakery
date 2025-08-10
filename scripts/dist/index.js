@@ -24,7 +24,7 @@ function displayProducts() {
         return;
     products.forEach(function (product, index) {
         var productCard = document.createElement("div");
-        productCard.className = "product-card";
+        productCard.className = "main__productsCont--product";
         productCard.innerHTML = "\n            <img src=\"" + _this.productImage + "\" alt=\"" + _this.productName + "\" />\n            <h3>" + _this.productName + "</h3>\n            <p>Price: $" + _this.productPrice + "</p>\n            <button onclick=\"addToCart(" + index + ")\">Add to Cart</button>\n        ";
         productContainer.appendChild(productCard);
     });
