@@ -13,7 +13,7 @@ class product {
 }
 
 const products: product[] = [
-    new product ("mini cockies", new URL("./images/DP-05430.webp"),150,true),
+    new product ("mini cockies", new URL ("./images/DP-05430.webp"),150,true),
     new product ("donats", new URL("./images/dp-05501.webp"),120,true),
     new product ("flavor mafins", new URL("./images/dp-07298_1024x683.webp"),200,true),
     new product ("cream buns", new URL("./images/dp-07499_1024x683.webp"),180,true),
@@ -22,3 +22,23 @@ const products: product[] = [
     new product ("the backlawa", new URL("./images/DP-09542.webp"),300,true),
 ]
 
+let cardtcount = 0;
+
+function displayProducts() {
+    const productContainer = document.getElementById("product-container");
+    if (!productContainer) return;
+
+    products.forEach((product, index) => {
+        const productCard = document.createElement("div");
+        productCard.className = "product-card";
+
+        productCard.innerHTML = `
+            <img src="${this.productImage}" alt="${this.productName}" />
+            <h3>${this.productName}</h3>
+            <p>Price: $${this.productPrice}</p>
+            <button onclick="addToCart(${index})">Add to Cart</button>
+        `;
+
+        productContainer.appendChild(productCard);
+    });
+}
