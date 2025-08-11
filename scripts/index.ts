@@ -46,5 +46,6 @@ function displayProducts() {
         `;
 
         productContainer.appendChild(productCard);
+        
     });
 }
