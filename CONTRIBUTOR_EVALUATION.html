@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contributor Evaluation Report</title>
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 20px;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: white;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #666;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: "Courier New", Consolas, monospace;
+            font-size: 0.9em;
+            color: #d73a49;
+        }
+        
+        pre {
+            background-color: #f6f8fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border: 1px solid #e1e4e8;
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 35px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        hr {
+            border: none;
+            border-top: 2px solid #ecf0f1;
+            margin: 35px 0;
+        }
+        
+        /* Special formatting for checkmarks and crosses */
+        li:has(✅), li:has(❌), li:has(⚠️) {
+            list-style: none;
+            margin-left: -20px;
+        }
+        
+        /* Score highlights */
+        strong:has-text("Score:") {
+            color: #e74c3c;
+        }
+        
+        /* Print-friendly colors */
+        @media print {
+            body {
+                color: black;
+            }
+            h1, h2, h3, h4, strong {
+                color: black;
+            }
+            th {
+                background-color: #ddd;
+                color: black;
+            }
+        }
+        
+        /* Recommendation boxes */
+        h3:has-text("Recommendations"), h2:has-text("Team Recommendations") {
+            color: #27ae60;
+        }
+        
+        /* Grade coloring */
+        td:last-child {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>Contributor Evaluation Report</h1>
+<h2>Based on Web Development Project Criteria (MVC TypeScript Application)</h2>
+<hr />
+<h2>Evaluation Summary Table</h2>
+<table>
+<thead>
+<tr>
+<th>Contributor</th>
+<th>Real Name</th>
+<th>Code Level</th>
+<th>Overall Score</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ariel (Ariel71232/Ariel Izraelov)</td>
+<td>Ariel</td>
+<td>Intermediate</td>
+<td>65/100</td>
+<td>D+</td>
+</tr>
+<tr>
+<td>yatirye</td>
+<td>Yatir</td>
+<td>Beginner-Intermediate</td>
+<td>55/100</td>
+<td>F</td>
+</tr>
+<tr>
+<td>Suki</td>
+<td>Valeria</td>
+<td>Beginner</td>
+<td>15/100</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Detailed Individual Evaluations</h2>
+<h3>👤 Contributor: Ariel (Ariel71232/Ariel Izraelov)</h3>
+<p><strong>Real Name</strong>: Ariel<br />
+<strong>Code Level</strong>: <strong>Intermediate</strong><br />
+<strong>Overall Score</strong>: <strong>65/100</strong></p>
+<h4>Technical Excellence (40% weight) - Score: 22/40</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Good HTML structure and semantic markup<br />
+- ✅ Modular SCSS architecture with separate files for components<br />
+- ✅ Proper use of Bootstrap for responsive design<br />
+- ✅ Clean file organization</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ <strong>No MVC Architecture</strong>: Code lacks Model-View-Controller separation<br />
+- ❌ <strong>No TypeScript Implementation</strong>: Only worked on HTML/SCSS, no TS contributions<br />
+- ❌ <strong>No OOP Principles</strong>: Missing classes, inheritance, or encapsulation in their work<br />
+- ❌ <strong>BEM Not Properly Implemented</strong>: CSS uses nested SCSS but doesn't follow BEM naming convention<br />
+- ❌ <strong>Hardcoded HTML</strong>: Products are hardcoded in HTML instead of dynamically rendered</p>
+<h4>Team Collaboration (30% weight) - Score: 25/30</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Highest contributor (65% of commits)<br />
+- ✅ Clear ownership of frontend/design work<br />
+- ✅ Consistent commit history</p>
+<p><strong>Weaknesses:</strong><br />
+- ⚠️ Could improve commit messages (many generic messages like "#1", "#2")</p>
+<h4>User Experience (30% weight) - Score: 18/30</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Visually structured layout<br />
+- ✅ Responsive design implementation<br />
+- ✅ Professional form design for admin panel</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ No functional interactivity (cart doesn't work)<br />
+- ❌ Products not dynamically rendered<br />
+- ❌ No localStorage implementation</p>
+<p><strong>Recommendations for Improvement:</strong><br />
+1. Learn TypeScript and implement proper typing<br />
+2. Study MVC architecture and refactor code accordingly<br />
+3. Implement BEM naming convention properly<br />
+4. Add functional JavaScript/TypeScript for interactivity</p>
+<hr />
+<h3>👤 Contributor: yatirye</h3>
+<p><strong>Real Name</strong>: Yatir<br />
+<strong>Code Level</strong>: <strong>Beginner-Intermediate</strong><br />
+<strong>Overall Score</strong>: <strong>55/100</strong></p>
+<h4>Technical Excellence (40% weight) - Score: 18/40</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Created TypeScript class with proper typing<br />
+- ✅ Basic OOP with constructor pattern<br />
+- ✅ Proper use of TypeScript types (string, number, boolean)</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ <strong>No MVC Implementation</strong>: No clear separation of Model, View, Controller<br />
+- ❌ <strong>Critical Bug</strong>: Display function uses <code>this</code> instead of <code>product</code> variable<br />
+- ❌ <strong>No BEM or CSS Work</strong>: No styling contributions<br />
+- ❌ <strong>Incomplete Implementation</strong>: Display function not connected to HTML<br />
+- ❌ <strong>No localStorage</strong>: Missing data persistence<br />
+- ❌ <strong>Poor Class Naming</strong>: Class name should be capitalized (Product not product)</p>
+<h4>Team Collaboration (30% weight) - Score: 20/30</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Significant contributor (31% of commits)<br />
+- ✅ Clear ownership of TypeScript logic</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ Generic commit messages ("#1", "updating the ts")<br />
+- ⚠️ Code not integrated with other team members' work</p>
+<h4>User Experience (30% weight) - Score: 17/30</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Set up data structure for products<br />
+- ✅ Attempted dynamic rendering function</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ Function doesn't actually work (bug prevents rendering)<br />
+- ❌ No user interaction implemented<br />
+- ❌ Cart functionality (<code>addToCart</code>) referenced but not implemented</p>
+<p><strong>Recommendations for Improvement:</strong><br />
+1. Debug and test code before committing<br />
+2. Learn MVC pattern and refactor code<br />
+3. Implement proper error handling<br />
+4. Follow TypeScript naming conventions (PascalCase for classes)<br />
+5. Write descriptive commit messages</p>
+<hr />
+<h3>👤 Contributor: Suki</h3>
+<p><strong>Real Name</strong>: Valeria<br />
+<strong>Code Level</strong>: <strong>Beginner</strong><br />
+<strong>Overall Score</strong>: <strong>15/100</strong></p>
+<h4>Technical Excellence (40% weight) - Score: 0/40</h4>
+<p><strong>Strengths:</strong><br />
+- None identified in technical implementation</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ No functional code contributions<br />
+- ❌ Only formatting changes (added blank line)<br />
+- ❌ No TypeScript, MVC, or OOP implementation<br />
+- ❌ No understanding of project requirements demonstrated</p>
+<h4>Team Collaboration (30% weight) - Score: 10/30</h4>
+<p><strong>Strengths:</strong><br />
+- ✅ Participated in repository</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ Minimal contribution (4% of commits)<br />
+- ❌ No meaningful code additions<br />
+- ❌ Appears to lack engagement with project</p>
+<h4>User Experience (30% weight) - Score: 5/30</h4>
+<p><strong>Strengths:</strong><br />
+- Minor code formatting</p>
+<p><strong>Weaknesses:</strong><br />
+- ❌ No impact on user experience<br />
+- ❌ No features implemented</p>
+<p><strong>Recommendations for Improvement:</strong><br />
+1. Active participation in coding tasks<br />
+2. Learn basic TypeScript and JavaScript<br />
+3. Study project requirements thoroughly<br />
+4. Contribute meaningful features or fixes<br />
+5. Communicate with team for task assignment</p>
+<hr />
+<h2>Project Assessment Against Requirements</h2>
+<h3>Current Project Status: <strong>Level 1 - E-Commerce Store (Incomplete)</strong></h3>
+<h4>Met Requirements ✅</h4>
+<ul>
+<li>Basic product catalog display (hardcoded in HTML)</li>
+<li>Admin interface structure (form exists but not functional)</li>
+<li>Responsive design basics</li>
+</ul>
+<h4>Missing Requirements ❌</h4>
+<ul>
+<li><strong>MVC Architecture</strong>: No Model-View-Controller separation</li>
+<li><strong>OOP Principles</strong>: Minimal use of classes, no inheritance or polymorphism</li>
+<li><strong>BEM Methodology</strong>: Not implemented</li>
+<li><strong>TypeScript Integration</strong>: Broken/incomplete</li>
+<li><strong>localStorage</strong>: No data persistence</li>
+<li><strong>Shopping Cart</strong>: Non-functional</li>
+<li><strong>Product Management</strong>: Admin panel doesn't work</li>
+<li><strong>Search/Filter</strong>: Not implemented</li>
+<li><strong>Git Workflow</strong>: Poor commit messages, no clear feature branches</li>
+</ul>
+<h3>Estimated Current Score: <strong>45/90 points</strong> (50% completion of Level 1)</h3>
+<hr />
+<h2>Team Recommendations</h2>
+<ol>
+<li><strong>Immediate Priorities:</strong></li>
+<li>Fix TypeScript display function bug</li>
+<li>Connect TypeScript to HTML properly</li>
+<li>
+<p>Implement basic MVC structure</p>
+</li>
+<li>
+<p><strong>Architecture Improvements:</strong></p>
+</li>
+<li>Create separate Model, View, Controller folders</li>
+<li>Move product data to Model</li>
+<li>Implement Controller for user interactions</li>
+<li>
+<p>Create View classes for rendering</p>
+</li>
+<li>
+<p><strong>Code Quality:</strong></p>
+</li>
+<li>Implement BEM naming for all CSS</li>
+<li>Add TypeScript interfaces for data structures</li>
+<li>Use proper Git commit messages</li>
+<li>
+<p>Create feature branches for new work</p>
+</li>
+<li>
+<p><strong>Functionality Gaps:</strong></p>
+</li>
+<li>Implement working shopping cart</li>
+<li>Add localStorage for persistence</li>
+<li>Make admin panel functional</li>
+<li>
+<p>Add product search/filter</p>
+</li>
+<li>
+<p><strong>Team Collaboration:</strong></p>
+</li>
+<li>Redistribute work more evenly</li>
+<li>Implement code review process</li>
+<li>Create clear task assignments</li>
+<li>Improve communication</li>
+</ol>
+<hr />
+<p><strong>Note</strong>: Scores are based on the current state of the repository compared to the project requirements.</p>
+    </div>
+    
+    <script>
+        // Auto-print dialog on page load (optional)
+        // window.onload = function() {
+        //     window.print();
+        // }
+    </script>
+</body>
+</html>
