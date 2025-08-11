@@ -1,3 +1,7 @@
+// imported NAVBAR*
+import { createNavBar } from "./navbar.js";
+document.querySelector("#navbar")!.innerHTML = createNavBar();
+ 
 class product {
     public productName: string;
     public productImage: URL;
@@ -10,7 +14,7 @@ class product {
         this.productPrice = productPrice;
         this.inStock = inStock;
     }
-}
+}  
 
 const products: product[] = [
     new product ("Lotus Cheese Platter (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dsc08319-1.jpg"),209.00 ,true),

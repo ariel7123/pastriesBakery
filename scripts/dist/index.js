@@ -1,13 +1,15 @@
-var product = /** @class */ (function () {
-    function product(productName, productImage, productPrice, inStock) {
+// imported NAVBAR*
+import { createNavBar } from "./navbar.js";
+document.querySelector("#navbar").innerHTML = createNavBar();
+class product {
+    constructor(productName, productImage, productPrice, inStock) {
         this.productName = productName;
         this.productImage = productImage;
         this.productPrice = productPrice;
         this.inStock = inStock;
     }
-    return product;
-}());
-var products = [
+}
+const products = [
     new product("Lotus Cheese Platter (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dsc08319-1.jpg"), 209.00, true),
     new product("Mini flavored crembo tray (24 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dp-07512.jpg"), 190.00, false),
     new product("Baby Basque in a luxurious cocotte (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/DP-05430.jpg"), 195.00, true),
@@ -35,7 +37,7 @@ function updateCartDisplay() {
     }
 }
 function displayProducts() {
-    var productContainer = document.getElementsByClassName("main__productsCont");
+    const productContainer = document.getElementsByClassName("main__productsCont");
     try {
         if (!productContainer) {
             throw new Error("Product container not found");
@@ -47,22 +49,15 @@ function displayProducts() {
     }
     if (!productContainer)
         return;
-    products.forEach(function (products, index) {
-        var productCard = document.createElement("div");
+    products.forEach((products, index) => {
+        const productCard = document.createElement("div");
         productCard.className = "main__productsCont--product";
         try {
-            productCard.id = "product-" + index;
+            productCard.id = `product-${index}`;
         }
         catch (error) {
             console.error("Error setting product ID:", error);
         }
-        // בדיקה אם המוצר במלאי ועדכון התצוגה בהתאם
-        var stockStatus = products.inStock ?
-            "<span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n            </span>" :
-            "<span class=\"StockProduct out-of-stock\">Out of stock \n                <i class=\"fa-solid fa-times-circle text-danger\"></i>\n            </span>";
-        var addToCartButton = products.inStock ?
-            "<button onclick=\"addToCart(" + index + ")\" class=\"btn-add-to-cart\">Add to Cart</button>" :
-            "<button disabled class=\"btn-add-to-cart btn-disabled\">Out of Stock</button>";
         productCard.innerHTML = "\n            <img src=\"" + products.productImage + "\" class=\"card-img-top\" alt=\"Pastry product named " + products.productName + " arranged on a serving tray in a bakery setting. The pastries are neatly presented, suggesting freshness and attention to detail. The bakery environment is well-lit and welcoming, with a warm and inviting atmosphere. Visible text in the image: " + products.productName + ". The overall mood is appetizing and cheerful.\" id=\"cardContainerItemImgUrl\" />\n            <div class=\"card-body\">\n            <p class=\"nameProduct\" id=\"cardContainerItemText\">" + products.productName + "</p>\n\n            <div class=\"priceAndStock\">\n              <span class=\"priceProduct\">" + products.productPrice + " \u20AA</span>\n              <span class=\"separator\" aria-hidden=\"true\">|</span>\n              <span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n              </span>\n              <button onclick=\"addToCart(" + index + ")\">Add to Cart</button>\n            </div>\n          </div>\n        ";
         productContainer[0].appendChild(productCard);
     });
