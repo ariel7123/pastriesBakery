@@ -17,6 +17,23 @@ var products = [
     new product("Giant baklawat tray 2.5 kilos", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/12/DP-09542.jpg"), 249.00, true),
 ];
 var cardtcount = 0;
+function updateCartDisplay() {
+    var cartButton = document.querySelector('.navBar__right--cart');
+    if (cartButton) {
+        // הסרת מונה קיים אם יש
+        var existingCounter = cartButton.querySelector('.cart-counter');
+        if (existingCounter) {
+            existingCounter.remove();
+        }
+        // הוספת מונה חדש רק אם יש פריטים בעגלה
+        if (cardtcount > 0) {
+            var counter = document.createElement('span');
+            counter.className = 'cart-counter';
+            counter.textContent = cardtcount.toString();
+            cartButton.appendChild(counter);
+        }
+    }
+}
 function displayProducts() {
     var productContainer = document.getElementsByClassName("main__productsCont");
     try {
@@ -39,9 +56,57 @@ function displayProducts() {
         catch (error) {
             console.error("Error setting product ID:", error);
         }
+        // בדיקה אם המוצר במלאי ועדכון התצוגה בהתאם
+        var stockStatus = products.inStock ?
+            "<span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n            </span>" :
+            "<span class=\"StockProduct out-of-stock\">Out of stock \n                <i class=\"fa-solid fa-times-circle text-danger\"></i>\n            </span>";
+        var addToCartButton = products.inStock ?
+            "<button onclick=\"addToCart(" + index + ")\" class=\"btn-add-to-cart\">Add to Cart</button>" :
+            "<button disabled class=\"btn-add-to-cart btn-disabled\">Out of Stock</button>";
         productCard.innerHTML = "\n            <img src=\"" + products.productImage + "\" class=\"card-img-top\" alt=\"Pastry product named " + products.productName + " arranged on a serving tray in a bakery setting. The pastries are neatly presented, suggesting freshness and attention to detail. The bakery environment is well-lit and welcoming, with a warm and inviting atmosphere. Visible text in the image: " + products.productName + ". The overall mood is appetizing and cheerful.\" id=\"cardContainerItemImgUrl\" />\n            <div class=\"card-body\">\n            <p class=\"nameProduct\" id=\"cardContainerItemText\">" + products.productName + "</p>\n\n            <div class=\"priceAndStock\">\n              <span class=\"priceProduct\">" + products.productPrice + " \u20AA</span>\n              <span class=\"separator\" aria-hidden=\"true\">|</span>\n              <span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n              </span>\n              <button onclick=\"addToCart(" + index + ")\">Add to Cart</button>\n            </div>\n          </div>\n        ";
         productContainer[0].appendChild(productCard);
     });
 }
 // To debug, call displayProducts() and log inside the function if needed
 displayProducts();
+// function addToCart(index: number) {
+//     try {
+//         if (index < 0 || index >= products.length) {
+//             throw new Error("Invalid product index");
+//         }   
+//         if (!products[index]) {
+//             throw new Error("Product not found");
+//         }
+//         const product = products[index];
+//         if (product.inStock) {
+//             cardtcount++;
+//             console.log(`Added ${product.productName} to cart. Total items in cart: ${cardtcount}`);
+//         } else {
+//             console.log(`${product.productName} is out of stock.`);
+//         }
+//     } catch (error) {
+//         console.error("Error adding to cart:", error);
+//     }
+// }
+function addToCart(index) {
+    try {
+        if (index < 0 || index >= products.length) {
+            throw new Error("Invalid product index");
+        }
+        if (!products[index]) {
+            throw new Error("Product not found");
+        }
+        var product_1 = products[index];
+        if (product_1.inStock) {
+            cardtcount++; // תיקון שם המשתנה
+            updateCartDisplay(); // עדכון התצוגה
+            console.log("Added " + product_1.productName + " to cart. Total items in cart: " + cardtcount);
+        }
+        else {
+            console.log(product_1.productName + " is out of stock.");
+        }
+    }
+    catch (error) {
+        console.error("Error adding to cart:", error);
+    }
+}

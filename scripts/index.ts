@@ -31,6 +31,26 @@ const products: product[] = [
 let cardtcount = 0;
 
 
+function updateCartDisplay() {
+    const cartButton = document.querySelector('.navBar__right--cart');
+    if (cartButton) {
+        // הסרת מונה קיים אם יש
+        const existingCounter = cartButton.querySelector('.cart-counter');
+        if (existingCounter) {
+            existingCounter.remove();
+        }
+        
+        // הוספת מונה חדש רק אם יש פריטים בעגלה
+        if (cardtcount > 0) {
+            const counter = document.createElement('span');
+            counter.className = 'cart-counter';
+            counter.textContent = cardtcount.toString();
+            cartButton.appendChild(counter);
+        }
+    }
+}
+
+
 
 function displayProducts() {
     const productContainer = document.getElementsByClassName("main__productsCont");
@@ -53,6 +73,20 @@ function displayProducts() {
         } catch (error) {
             console.error("Error setting product ID:", error);
         }
+
+        // בדיקה אם המוצר במלאי ועדכון התצוגה בהתאם
+        const stockStatus = products.inStock ? 
+            `<span class="StockProduct">In stock 
+                <i class="fa-solid fa-check-circle text-success"></i>
+            </span>` : 
+            `<span class="StockProduct out-of-stock">Out of stock 
+                <i class="fa-solid fa-times-circle text-danger"></i>
+            </span>`;
+
+        const addToCartButton = products.inStock ? 
+            `<button onclick="addToCart(${index})" class="btn-add-to-cart">Add to Cart</button>` :
+            `<button disabled class="btn-add-to-cart btn-disabled">Out of Stock</button>`;
+
 
         productCard.innerHTML = `
             <img src="${products.productImage}" class="card-img-top" alt="Pastry product named ${products.productName} arranged on a serving tray in a bakery setting. The pastries are neatly presented, suggesting freshness and attention to detail. The bakery environment is well-lit and welcoming, with a warm and inviting atmosphere. Visible text in the image: ${products.productName}. The overall mood is appetizing and cheerful." id="cardContainerItemImgUrl" />
@@ -79,3 +113,50 @@ function displayProducts() {
 // To debug, call displayProducts() and log inside the function if needed
 displayProducts();
 
+
+
+
+
+// function addToCart(index: number) {
+//     try {
+//         if (index < 0 || index >= products.length) {
+//             throw new Error("Invalid product index");
+//         }   
+//         if (!products[index]) {
+//             throw new Error("Product not found");
+//         }
+//         const product = products[index];
+//         if (product.inStock) {
+//             cardtcount++;
+//             console.log(`Added ${product.productName} to cart. Total items in cart: ${cardtcount}`);
+//         } else {
+//             console.log(`${product.productName} is out of stock.`);
+//         }
+//     } catch (error) {
+//         console.error("Error adding to cart:", error);
+//     }
+
+
+// }
+
+
+function addToCart(index: number) {
+    try {
+        if (index < 0 || index >= products.length) {
+            throw new Error("Invalid product index");
+        }   
+        if (!products[index]) {
+            throw new Error("Product not found");
+        }
+        const product = products[index];
+        if (product.inStock) {
+            cardtcount++; // תיקון שם המשתנה
+            updateCartDisplay(); // עדכון התצוגה
+            console.log(`Added ${product.productName} to cart. Total items in cart: ${cardtcount}`);
+        } else {
+            console.log(`${product.productName} is out of stock.`);
+        }
+    } catch (error) {
+        console.error("Error adding to cart:", error);
+    }
+}
