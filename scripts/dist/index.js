@@ -18,14 +18,30 @@ var products = [
 ];
 var cardtcount = 0;
 function displayProducts() {
-    var _this = this;
-    var productContainer = document.getElementById("product-container");
+    var productContainer = document.getElementsByClassName("main__productsCont");
+    try {
+        if (!productContainer) {
+            throw new Error("Product container not found");
+        }
+    }
+    catch (error) {
+        console.error("Error finding product container:", error);
+        return;
+    }
     if (!productContainer)
         return;
-    products.forEach(function (product, index) {
+    products.forEach(function (products, index) {
         var productCard = document.createElement("div");
         productCard.className = "main__productsCont--product";
-        productCard.innerHTML = "\n            <img src=\"" + _this.productImage + "\" alt=\"" + _this.productName + "\" />\n            <h3>" + _this.productName + "</h3>\n            <p>Price: $" + _this.productPrice + "</p>\n            <button onclick=\"addToCart(" + index + ")\">Add to Cart</button>\n        ";
-        productContainer.appendChild(productCard);
+        try {
+            productCard.id = "product-" + index;
+        }
+        catch (error) {
+            console.error("Error setting product ID:", error);
+        }
+        productCard.innerHTML = "\n            <img src=\"" + products.productImage + "\" class=\"card-img-top\" alt=\"Pastry product named " + products.productName + " arranged on a serving tray in a bakery setting. The pastries are neatly presented, suggesting freshness and attention to detail. The bakery environment is well-lit and welcoming, with a warm and inviting atmosphere. Visible text in the image: " + products.productName + ". The overall mood is appetizing and cheerful.\" id=\"cardContainerItemImgUrl\" />\n            <div class=\"card-body\">\n            <p class=\"nameProduct\" id=\"cardContainerItemText\">" + products.productName + "</p>\n\n            <div class=\"priceAndStock\">\n              <span class=\"priceProduct\">" + products.productPrice + " \u20AA</span>\n              <span class=\"separator\" aria-hidden=\"true\">|</span>\n              <span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n              </span>\n              <button onclick=\"addToCart(" + index + ")\">Add to Cart</button>\n            </div>\n          </div>\n        ";
+        productContainer[0].appendChild(productCard);
     });
 }
+// To debug, call displayProducts() and log inside the function if needed
+displayProducts();
