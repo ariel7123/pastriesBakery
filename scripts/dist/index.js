@@ -1,6 +1,9 @@
 // imported NAVBAR*
 import { createNavBar } from "./navbar.js";
 document.querySelector("#navbar").innerHTML = createNavBar();
+// imported Footer* 
+import { createAdminPanelFooter } from "./adminPanel-Footer.js";
+document.querySelector("#adminPanelFooter").innerHTML = createAdminPanelFooter();
 class product {
     constructor(productName, productImage, productPrice, inStock) {
         this.productName = productName;
