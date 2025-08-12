@@ -111,7 +111,9 @@ function displayProducts() {
               <span class="StockProduct">In stock 
                 <i class="fa-solid fa-check-circle text-success"></i>
               </span>
-              <button onclick="addToCart(${index})" class="addToCart">Add to Cart</button>
+              <button onclick="addToCart(${index})" class="addToCart">
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
             </div>
           </div>
         `;
