@@ -17,7 +17,7 @@ body {
   // -- Variables for colors
   --primary-color: rgb(255, 255, 255);
   --secondary-color: #0e5d6a;
-  --third-color: rgb(0, 0, 0);
+  --third-color: #30849183;
 }
 body {
   background: #f8fafc;
@@ -131,7 +131,6 @@ button {
       min-width: 300px;
 
       margin-bottom: 1rem;
-      cursor: pointer;
       border-radius: 18px;
       box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13),
         0 1.5px 3px 0 rgba(0, 0, 0, 0.08);
@@ -156,6 +155,7 @@ button {
         background-size: cover; /* for backgroung-img */
 
         border-radius: 18px 18px 0 0;
+        cursor: pointer;
       }
 
       // Phones
@@ -210,6 +210,21 @@ button {
           // .StockProduct{
 
           // }
+
+          .addToCart{
+            background-color: var(--third-color);
+            border-radius: 25px;
+            padding: 0.3rem 0.8rem;
+            transition: transform 0.5s ease, background-color 0.2s ease;
+            color: var(--primary-color);
+            font-size: 1rem;
+
+            &:hover {
+              transform: scale(1.05);
+              filter: brightness(0.92);
+              cursor: pointer; 
+            } 
+          }
         }
       }
     }
