@@ -4,7 +4,7 @@ document.querySelector("#navbar")!.innerHTML = createNavBar();
 
 // imported Main*
 import { createMain } from "./main.js";
-document.querySelector("#main")!.innerHTML = createMain();
+ document.querySelector("#main")!.innerHTML = createMain(); 
 
 // imported Footer* 
 import { createAdminPanelFooter } from "./adminPanel-Footer.js";
@@ -120,7 +120,7 @@ function displayProducts() {
         
     });
 
-}
+} 
 
 // To debug, call displayProducts() and log inside the function if needed
 displayProducts();

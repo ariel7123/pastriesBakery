@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   // overflow-x: hidden; // Do not turn it on!!
-  padding-bottom: 120px; // For footer-adminPanel
+  padding-bottom: 50px; // For footer-adminPanel
 }
 * {
   margin: 0;
@@ -15,7 +15,7 @@ body {
   // direction: rtl; /* Right-to-left text direction */
 
   // -- Variables for colors
-  --primary-color: rgb(247, 247, 247);
+  --primary-color: rgb(255, 255, 255);
   --secondary-color: #0e5d6a;
   --third-color: rgb(0, 0, 0);
 }
@@ -95,5 +95,3 @@ button {
 @import "navBar";
 @import "mainProductCards";
 @import "footer";
-
- 
