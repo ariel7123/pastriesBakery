@@ -8,6 +8,8 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
   width: fit-content;
   margin: 2rem 2rem 0 2rem;
+  max-width: 1200px;
+  margin: auto;
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
