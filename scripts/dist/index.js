@@ -1,6 +1,9 @@
 // imported NAVBAR*
 import { createNavBar } from "./navbar.js";
 document.querySelector("#navbar").innerHTML = createNavBar();
+// imported Main*
+import { createMain } from "./main.js";
+document.querySelector("#main").innerHTML = createMain();
 // imported Footer* 
 import { createAdminPanelFooter } from "./adminPanel-Footer.js";
 document.querySelector("#adminPanelFooter").innerHTML = createAdminPanelFooter();

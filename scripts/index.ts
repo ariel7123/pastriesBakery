@@ -2,10 +2,14 @@
 import { createNavBar } from "./navbar.js";
 document.querySelector("#navbar")!.innerHTML = createNavBar();
 
+// imported Main*
+import { createMain } from "./main.js";
+document.querySelector("#main")!.innerHTML = createMain();
+
 // imported Footer* 
 import { createAdminPanelFooter } from "./adminPanel-Footer.js";
 document.querySelector("#adminPanelFooter")!.innerHTML = createAdminPanelFooter();
- 
+  
 class product {
     public productName: string;
     public productImage: URL;
@@ -18,7 +22,7 @@ class product {
         this.productPrice = productPrice;
         this.inStock = inStock;
     }
-}   
+}     
 
 const products: product[] = [
     new product ("Lotus Cheese Platter (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dsc08319-1.jpg"),209.00 ,true),
