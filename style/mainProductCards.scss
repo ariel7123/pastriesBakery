@@ -21,15 +21,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: stretch;
     gap: 5rem;
+    
     margin: auto;
     max-width: 1200px;
-    align-items: center;
     max-height: 75vh;
-
+    
     &--product {
       flex: 1 1 calc(33.333% - 1.5rem);
-      max-width: calc(30% - 1.5rem); // לא יחרוג משליש
+      max-width: calc(30% - 1.5rem);
       min-width: 300px;
 
       margin-bottom: 1rem;
@@ -42,6 +43,8 @@
       background: #fff;
       overflow: hidden;
 
+      display: flex;
+      flex-direction: column;
       &:hover {
         box-shadow: 0 8px 32px 0 rgba(23, 58, 120, 0.22),
           0 1.5px 12px 0 rgba(0, 0, 0, 0.12);
@@ -57,25 +60,26 @@
 
         border-radius: 18px 18px 0 0;
 
-        @media (max-width: 576px) {
-          // Phones
-          .card-img-top {
-            height: 150px;
-          }
-        }
+      }
 
-        @media (min-width: 768px) and (max-width: 1199px) {
-          // Tablets
-          .card-img-top {
-            height: 220px;
-          }
+      // Phones
+      @media (max-width: 576px) {
+        .card-img-top {
+          height: 150px;
         }
+      }
 
-        @media (min-width: 1200px) {
-          // Wide
-          .card-img-top {
-            height: 250px;
-          }
+      // Tablets
+      @media (min-width: 768px) and (max-width: 1199px) {
+        .card-img-top {
+          height: 220px;
+        }
+      }
+
+      // Wide
+      @media (min-width: 1200px) {
+        .card-img-top {
+          height: 250px;
         }
       }
 
@@ -97,9 +101,9 @@
           // }
 
           .separator {
-            color: #aaa; /* או כל צבע שתרצה */
+            color: #aaa;
             font-weight: bold;
-            user-select: none; /* For unselect*/
+            user-select: none;
           }
 
           // .StockProduct{
