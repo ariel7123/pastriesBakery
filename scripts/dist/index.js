@@ -69,33 +69,13 @@ function displayProducts() {
             console.error("Error setting product ID:", error);
         }
         // בדיקה אם המוצר במלאי ועדכון התצוגה בהתאם
-        const stockStatus = products.inStock ?
-            `<span class="StockProduct">In stock 
-                <i class="fa-solid fa-check-circle text-success"></i>
-            </span>` :
-            `<span class="StockProduct out-of-stock">Out of stock 
-                <i class="fa-solid fa-times-circle text-danger"></i>
-            </span>`;
-        const addToCartButton = products.inStock ?
-            `<button onclick="addToCart(${index})" class="btn-add-to-cart">Add to Cart</button>` :
-            `<button disabled class="btn-add-to-cart btn-disabled">Out of Stock</button>`;
-        productCard.innerHTML = `
-            <img src="${products.productImage}" class="card-img-top" alt="Pastry product named ${products.productName} arranged on a serving tray in a bakery setting. The pastries are neatly presented, suggesting freshness and attention to detail. The bakery environment is well-lit and welcoming, with a warm and inviting atmosphere. Visible text in the image: ${products.productName}. The overall mood is appetizing and cheerful." id="cardContainerItemImgUrl" />
-            <div class="card-body">
-            <p class="nameProduct" id="cardContainerItemText">${products.productName}</p>
-
-            <div class="priceAndStock">
-              <span class="priceProduct">${products.productPrice} ₪</span>
-              <span class="separator" aria-hidden="true">|</span>
-              <span class="StockProduct">In stock 
-                <i class="fa-solid fa-check-circle text-success"></i>
-              </span>
-              <button onclick="addToCart(${index})" class="addToCart">
-                <i class="fa-solid fa-cart-plus"></i>
-              </button>
-            </div>
-          </div>
-        `;
+        var stockStatus = products.inStock ?
+            "<span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n            </span>" :
+            "<span class=\"StockProduct out-of-stock\">Out of stock \n                <i class=\"fa-solid fa-times-circle text-danger\"></i>\n            </span>";
+        var addToCartButton = products.inStock ?
+            "<button onclick=\"addToCart(" + index + ")\" class=\"btn-add-to-cart\">Add to Cart</button>" :
+            "<button disabled class=\"btn-add-to-cart btn-disabled\">Out of Stock</button>";
+        productCard.innerHTML = "\n            <img src=\"" + products.productImage + "\" class=\"card-img-top\" alt=\"Pastry product named " + products.productName + " arranged on a serving tray in a bakery setting. The pastries are neatly presented, suggesting freshness and attention to detail. The bakery environment is well-lit and welcoming, with a warm and inviting atmosphere. Visible text in the image: " + products.productName + ". The overall mood is appetizing and cheerful.\" id=\"cardContainerItemImgUrl\" />\n            <div class=\"card-body\">\n            <p class=\"nameProduct\" id=\"cardContainerItemText\">" + products.productName + "</p>\n\n            <div class=\"priceAndStock\">\n              <span class=\"priceProduct\">" + products.productPrice + " \u20AA</span>\n              <span class=\"separator\" aria-hidden=\"true\">|</span>\n              <span class=\"StockProduct\">In stock \n                <i class=\"fa-solid fa-check-circle text-success\"></i>\n              </span>\n              <button onclick=\"addToCart(" + index + ")\" class=\"addToCart\">\n                <i class=\"fa-solid fa-cart-plus\"></i>\n              </button>\n            </div>\n          </div>\n        ";
         productContainer[0].appendChild(productCard);
     });
 }
@@ -164,7 +144,7 @@ function updateCartModal() {
         return;
     }
     if (cart.length === 0) {
-        cartItems.innerHTML = "\n                    <div class=\"empty-cart\">\n                        <i class=\"fas fa-cart-shopping\"></i>\n                        <h3>cart is empty/h3>\n                        <p>add product buy</p>\n                    </div>\n                ";
+        cartItems.innerHTML = "\n                    <div class=\"empty-cart\">\n                        <i class=\"fas fa-cart-shopping\"></i>\n                        <h3>cart is empty</h3>\n                        <p>add product buy</p>\n                    </div>\n                ";
         totalAmount.textContent = '0';
         return;
     }
@@ -208,5 +188,13 @@ function checkout() {
     updateCartDisplay();
     closeCart({ target: { id: 'cartModal', className: 'close-cart' } });
 }
+window.addToCart = addToCart;
+window.updateQuantity = updateQuantity;
+window.removeFromCart = removeFromCart;
+window.toggleCart = toggleCart;
+window.closeCart = closeCart;
+window.checkout = checkout;
 // הפעלת הפונקציה בעת טעינת הדף
-displayProducts();
+document.addEventListener('DOMContentLoaded', function () {
+    displayProducts();
+});

@@ -215,7 +215,7 @@ function addToCart(index: number) {
                 cartItems.innerHTML = `
                     <div class="empty-cart">
                         <i class="fas fa-cart-shopping"></i>
-                        <h3>cart is empty/h3>
+                        <h3>cart is empty</h3>
                         <p>add product buy</p>
                     </div>
                 `;
@@ -285,5 +285,15 @@ function addToCart(index: number) {
             closeCart({ target: { id: 'cartModal', className: 'close-cart' } });
         }
 
-        // הפעלת הפונקציה בעת טעינת הדף
-        displayProducts();
+(window as any).addToCart = addToCart;
+(window as any).updateQuantity = updateQuantity;
+(window as any).removeFromCart = removeFromCart;
+(window as any).toggleCart = toggleCart;
+(window as any).closeCart = closeCart;
+(window as any).checkout = checkout;
+
+// הפעלת הפונקציה בעת טעינת הדף
+document.addEventListener('DOMContentLoaded', () => {
+    displayProducts();
+});
+        
