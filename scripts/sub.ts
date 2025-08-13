@@ -15,4 +15,3 @@ function handleSubmit(event: Event) {
 }
 
 (window as any).handleSubmit = handleSubmit;
-+

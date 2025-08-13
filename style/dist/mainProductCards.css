@@ -1,20 +1,20 @@
+@charset "UTF-8";
+/* בלוק BEM חדש */
 .main {
   margin: auto;
 }
-.main__contentHeader {
+.main__header {
   text-align: center;
+  margin: 5rem 0 2rem;
 }
-.main__contentHeader--header {
-  margin-bottom: 2rem;
-  margin-top: 5rem;
-}
-.main__contentHeader--header h2 {
+.main__title {
   font-family: "Playwrite AU QLD", cursive;
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: underline;
 }
-.main__productsCont {
+
+.product-list, .main__productsCont {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -23,59 +23,42 @@
   margin: auto;
   max-width: 1200px;
 }
-.main__productsCont--product {
+.product-list .product-card, .product-list .main__productsCont--product, .main__productsCont .product-card, .main__productsCont .main__productsCont--product {
   flex: 1 1 calc(33.333% - 1.5rem);
   max-width: calc(30% - 1.5rem);
   min-width: 300px;
   margin-bottom: 1rem;
   border-radius: 18px;
-  box-shadow: 0 4px 12px 0 rgba(50, 50, 93, 0.13), 0 1.5px 3px 0 rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s cubic-bezier(0.4, 0.2, 0.2, 1) 0s, transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1) 0s;
+  box-shadow: 0 4px 12px rgba(50, 50, 93, 0.13), 0 1.5px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0.2, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
   background: #fff;
   overflow: hidden;
   display: flex;
   flex-direction: column;
 }
-.main__productsCont--product:hover {
-  box-shadow: 0 8px 32px 0 rgba(23, 58, 120, 0.22), 0 1.5px 12px 0 rgba(0, 0, 0, 0.12);
+.product-list .product-card:hover, .product-list .main__productsCont--product:hover, .main__productsCont .product-card:hover, .main__productsCont .main__productsCont--product:hover {
+  box-shadow: 0 8px 32px rgba(23, 58, 120, 0.22), 0 1.5px 12px rgba(0, 0, 0, 0.12);
   transform: translateY(-6px) scale(1.01);
 }
-.main__productsCont--product .card-img-top {
+.product-list .product-card__image, .product-list .card-img-top, .main__productsCont .product-card__image, .main__productsCont .card-img-top {
   width: 100%;
   height: clamp(200px, 25vh, 300px);
   object-fit: cover;
-  /* Cropping the image instead of distorting it */
-  /* for img */
   background-size: cover;
-  /* for backgroung-img */
   border-radius: 18px 18px 0 0;
   cursor: pointer;
 }
-@media (max-width: 576px) {
-  .main__productsCont--product .card-img-top {
-    height: 150px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1199px) {
-  .main__productsCont--product .card-img-top {
-    height: 220px;
-  }
-}
-@media (min-width: 1200px) {
-  .main__productsCont--product .card-img-top {
-    height: 250px;
-  }
-}
-.main__productsCont--product .card-body {
+.product-list .product-card__body, .product-list .card-body, .main__productsCont .product-card__body, .main__productsCont .card-body {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
-.main__productsCont--product .card-body .nameProduct {
+.product-list .product-card__title, .product-list .nameProduct, .main__productsCont .product-card__title, .main__productsCont .nameProduct {
   text-align: center;
   margin: 1.5rem 1.5rem 0;
+  font-weight: 700;
 }
-.main__productsCont--product .card-body .priceAndStock {
+.product-list .product-card__meta, .product-list .priceAndStock, .main__productsCont .product-card__meta, .main__productsCont .priceAndStock {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,30 +66,44 @@
   padding: 0 0 1.5rem;
   margin-top: auto;
 }
-.main__productsCont--product .card-body .priceAndStock .separator {
+.product-list .product-card__price, .product-list .priceProduct, .main__productsCont .product-card__price, .main__productsCont .priceProduct {
+  font-weight: 600;
+}
+.product-list .product-card__separator, .product-list .separator, .main__productsCont .product-card__separator, .main__productsCont .separator {
   color: #aaa;
-  font-weight: bold;
+  font-weight: 700;
   user-select: none;
 }
-.main__productsCont--product .card-body .priceAndStock .addToCart {
+.product-list .product-card__add, .product-list .addToCart,
+.product-list .btn-add-to-cart, .main__productsCont .product-card__add, .main__productsCont .addToCart,
+.main__productsCont .btn-add-to-cart {
   background-color: var(--third-color);
+  color: #fff;
   border-radius: 25px;
   padding: 0.3rem 0.8rem;
-  transition: transform 0.5s ease, background-color 0.2s ease;
+  transition: transform 0.5s ease, background-color 0.2s ease, filter 0.2s ease;
   font-size: 1rem;
-}
-.main__productsCont--product .card-body .priceAndStock .addToCart:hover {
-  transform: scale(1.05);
-  filter: brightness(0.92);
+  border: none;
   cursor: pointer;
 }
-.main .copyrightSection {
+.product-list .product-card__add:hover, .product-list .addToCart:hover,
+.product-list .btn-add-to-cart:hover, .main__productsCont .product-card__add:hover, .main__productsCont .addToCart:hover,
+.main__productsCont .btn-add-to-cart:hover {
+  transform: scale(1.05);
+  filter: brightness(0.92);
+}
+.product-list .product-card--disabled, .product-list .btn-disabled, .main__productsCont .product-card--disabled, .main__productsCont .btn-disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.copyright-section {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 3rem 0;
 }
-.main .copyrightSection .copyright {
+.copyright-section__text {
   color: var(--primary-color);
   background: var(--secondary-color);
   padding: 1rem;
@@ -114,9 +111,18 @@
   border-radius: 25px;
   box-shadow: 0 4px 20px rgba(14, 93, 106, 0.25), 0 2px 6px rgba(14, 93, 106, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.2);
 }
-.main .copyrightSection .copyright a {
+.copyright-section__link {
   color: var(--primary-color);
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.1rem;
-  text-decoration: underline !important;
+  text-decoration: underline;
+}
+
+/* בלוק תאימות לשמות הישנים מה־TS */
+.StockProduct {
+  color: #267a2e;
+}
+
+.out-of-stock {
+  color: #b71c1c;
 }

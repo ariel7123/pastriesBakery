@@ -1,9 +1,9 @@
 // imported NAVBAR*
 import { createNavBar } from "./navbar.js";
 document.querySelector("#navbar")!.innerHTML = createNavBar();
-
+ 
 // imported Main*
-import { createMain } from "./main.js";
+import { createMain } from "./mainProductCards.js";
  document.querySelector("#main")!.innerHTML = createMain(); 
 
 // imported Footer* 
@@ -23,7 +23,7 @@ class product {
         this.inStock = inStock;
     }
 }     
-
+ 
 const products: product[] = [
     new product ("Lotus Cheese Platter (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dsc08319-1.jpg"),209.00 ,true),
 
