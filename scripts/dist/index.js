@@ -1,14 +1,14 @@
 "use strict";
-exports.__esModule = true;
+export const __esModule = true;
 // imported NAVBAR*
-var navbar_js_1 = require("./navbar.js");
-document.querySelector("#navbar").innerHTML = navbar_js_1.createNavBar();
+import { createNavBar } from "./navbar.js";
+document.querySelector("#navbar").innerHTML = createNavBar();
 // imported Main*
-var main_js_1 = require("./main.js");
-document.querySelector("#main").innerHTML = main_js_1.createMain();
+import { createMain } from "./main.js";
+document.querySelector("#main").innerHTML = createMain();
 // imported Footer* 
-var adminPanel_Footer_js_1 = require("./adminPanel-Footer.js");
-document.querySelector("#adminPanelFooter").innerHTML = adminPanel_Footer_js_1.createAdminPanelFooter();
+import { createAdminPanelFooter } from "./adminPanel-Footer.js";
+document.querySelector("#adminPanelFooter").innerHTML = createAdminPanelFooter();
 var product = /** @class */ (function () {
     function product(productName, productImage, productPrice, inStock) {
         this.productName = productName;
@@ -79,8 +79,6 @@ function displayProducts() {
         productContainer[0].appendChild(productCard);
     });
 }
-// To debug, call displayProducts() and log inside the function if needed
-displayProducts();
 function addToCart(index) {
     try {
         if (index < 0 || index >= products.length) {

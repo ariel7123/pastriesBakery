@@ -131,14 +131,6 @@ function displayProducts() {
 
 } 
 
-// To debug, call displayProducts() and log inside the function if needed
-displayProducts();
-
-
-
-
-
-
 
 
 function addToCart(index: number) {
