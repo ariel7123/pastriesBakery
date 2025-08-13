@@ -1,0 +1,170 @@
+$main-bg: #0e5d6a;
+$input-border: #d4d4e2;
+$submit-start: #e76d7a;
+$submit-end: #e1a3bf;
+
+.admin-panel {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  width: min(1200px, 92vw);
+  padding: 12px;
+  background: $main-bg;
+  border-radius: 22px 22px 0 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-panel__left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1 1 auto;
+}
+
+.admin-panel__group {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  padding: 0 10px;
+  border: 1.5px solid $input-border;
+  border-radius: 12px;
+  background: #fff;
+  flex: 1 1 260px;
+  max-width: 420px;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.admin-panel__input {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0 6px;
+  font-size: 16px;
+}
+
+.admin-panel__group:focus-within {
+  border-color: #97a7ff;
+  box-shadow: 0 0 0 3px rgba(151, 167, 255, 0.25);
+}
+
+.admin-panel__group--checkbox {
+  border: 0;
+  background: transparent;
+  height: 48px;
+  padding: 0;
+  flex: 0 0 auto;
+  display: inline-flex;
+  gap: 10px;
+  color: #e9eef6;
+  font-weight: 600;
+  cursor: pointer;
+}
+.admin-panel__checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+.admin-panel input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #e9eef6;
+}
+
+.admin-panel__right {
+  flex: 0 0 auto;
+}
+
+.admin-panel__submit {
+  height: 48px;
+  padding: 0 22px;
+  background: linear-gradient(90deg, $submit-start, $submit-end);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+}
+.admin-panel__submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+@media (max-width: 992px) {
+  .admin-panel {
+    padding: 10px;
+    gap: 10px;
+  }
+  .admin-panel__group {
+    flex: 1 1 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    border-radius: 18px 18px 0 0;
+  }
+  .admin-panel__left {
+    gap: 10px;
+  }
+  .admin-panel__group {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+  .admin-panel__group--checkbox {
+    justify-content: flex-start;
+    color: #f1f5f9;
+  }
+  .admin-panel__submit {
+    width: 100%;
+  }
+}
+
+.adminPanel {
+  @extend .admin-panel;
+}
+.adminPanel__left {
+  @extend .admin-panel__left;
+}
+.adminPanel__right {
+  @extend .admin-panel__right;
+}
+.form-group {
+  @extend .admin-panel__group;
+}
+.form-group--checkbox {
+  @extend .admin-panel__group--checkbox;
+}
+.adminPanel__left--stock {
+  @extend .admin-panel__checkbox-label;
+}
+.adminPanel__left--nameProduct {
+  @extend .admin-panel__input;
+}
+.adminPanel__left--img {
+  @extend .admin-panel__input;
+}
+.adminPanel__left--price {
+  @extend .admin-panel__input;
+}
+.adminPanel__right--submit {
+  @extend .admin-panel__submit;
+}

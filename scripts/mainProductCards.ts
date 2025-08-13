@@ -1,5 +1,5 @@
-export function createMain() {
-    return `
+export function createMain(): string{
+  return `
 <main class="main">
   <section class="main__header">
     <h2 class="main__title">Our selected pastries!</h2>
@@ -16,5 +16,5 @@ export function createMain() {
       </a> 🍰 All images are reserved
     </span>
   </section>  
-</main>`;
+</main>`
 }
