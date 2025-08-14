@@ -1,25 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Boutique Pastries</title>
+
+  <!-- Scripts files -->
+  <script type="module" src="./scripts/dist/index.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+  <!-- Bootstrp link -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Styles links -->
+  <link rel="stylesheet" href="./style/dist/style.css">
+  <link rel="icon" type="image/x-icon" href="./images/854-logo-1713227106.763color-E63946.svg">
+  <!-- CDN link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+
+  
+  <!-- G fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&    display=swap" rel="stylesheet">
+
+  <!-- Font Awoseme  -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
+    
+  </nav>
+
+  <!-- Main Products -->
+  <main id="main">
+
+  </main>
+
+  <!-- adminPanel (footer) -->
+  <footer id="adminPanelFooter">
+
+  </footer>
+
+</body>
+</html>
+
 // imported NAVBAR*
 import { createNavBar } from "./navbar.js";
-
+document.querySelector("#navbar")!.innerHTML = createNavBar();
+ 
 // imported Main*
 import { createMain } from "./mainProductCards.js";
+ document.querySelector("#main")!.innerHTML = createMain(); 
 
 // imported Footer* 
-import { createAdminPanelFooter} from "./adminPanel-Footer.js";
-
-// IMPORTANT: Make functions globally available FIRST
-(window as any).handleSubmit = handleSubmit;
-(window as any).addToCart = addToCart;
-(window as any).updateQuantity = updateQuantity;
-(window as any).removeFromCart = removeFromCart;
-(window as any).toggleCart = toggleCart;
-(window as any).closeCart = closeCart;
-(window as any).checkout = checkout;
-
-// THEN set the innerHTML
-document.querySelector("#navbar")!.innerHTML = createNavBar();
-document.querySelector("#main")!.innerHTML = createMain(); 
+import { createAdminPanelFooter } from "./adminPanel-Footer.js";
 document.querySelector("#adminPanelFooter")!.innerHTML = createAdminPanelFooter();
+
+import { handleSubmit } from './adminPanel-Footer.js';
+
+// Make it available globally for HTML
+(window as any).handleSubmit = handleSubmit;
+
+// Or use it directly in your code
+// handleSubmit(someEvent);
   
 class product {
     public productName: string;
@@ -35,7 +85,7 @@ class product {
     }
 }     
  
-let products: product[] = [
+const products: product[] = [
     new product ("Lotus Cheese Platter (20 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dsc08319-1.jpg"),209.00 ,true),
 
     new product ("Mini flavored crembo tray (24 pcs)", new URL("https://www.boutiquenic.com/wp-content/uploads/2024/08/dp-07512.jpg"),190.00 ,true),
@@ -300,6 +350,67 @@ document.addEventListener('DOMContentLoaded', () => {
     displayProducts();
 });
        
+export function createAdminPanelFooter(): string {
+  return `
+<form class="admin-panel adminPanel admin-panel--fixed" onsubmit="handleSubmit?.(event)">
+  <div class="admin-panel__left adminPanel__left">
+    <div class="admin-panel__group form-group" data-field="nameProduct">
+      <label for="nameProduct" class="admin-panel__label visually-hidden">name product</label>
+      <input 
+        type="text" 
+        id="nameProduct"
+        class="admin-panel__input adminPanel__left--nameProduct" 
+        name="nameProduct"
+        placeholder="name product"
+        required
+      >
+    </div>
+
+    <div class="admin-panel__group form-group" data-field="img">
+      <label for="img" class="admin-panel__label visually-hidden">img url</label>
+      <input 
+        type="text" 
+        id="img"
+        class="admin-panel__input adminPanel__left--img" 
+        name="img"
+        placeholder="img url"
+        required
+      >
+    </div>
+
+    <div class="admin-panel__group form-group" data-field="price">
+      <label for="price" class="admin-panel__label visually-hidden">price</label>
+      <input 
+        type="number" 
+        id="price"
+        class="admin-panel__input adminPanel__left--price" 
+        name="price"
+        min="0"
+        placeholder="price"
+        required
+      >
+    </div>
+
+    <div class="admin-panel__group admin-panel__group--checkbox form-group form-group--checkbox" data-field="inStock">
+      <label for="inStock" class="admin-panel__checkbox-label adminPanel__left--stock">
+        <input type="checkbox" id="inStock" name="inStock">
+        in stock?
+      </label>
+    </div>
+  </div>
+
+  <div class="admin-panel__right adminPanel__right">
+    <button 
+      type="submit" 
+      class="admin-panel__submit adminPanel__right--submit" 
+      data-state="idle"
+      aria-busy="false"
+    >
+      submit
+    </button>
+  </div>
+</form>`;
+}
 
 export function handleSubmit(event: Event) {
   event.preventDefault();
@@ -307,33 +418,76 @@ export function handleSubmit(event: Event) {
   const form = event.target as HTMLFormElement;
   const formData = new FormData(form);
   
-  // Create new product from form data
-const newProduct = new product(
-    formData.get('nameProduct') as string,
-    new URL(formData.get('img') as string),  // Add new URL() here
-    parseFloat(formData.get('price') as string),
-    formData.has('inStock')
-);
+  const data = {
+    nameProduct: formData.get('nameProduct') as string,
+    img: formData.get('img') as string,
+    price: formData.get('price') as string,
+    inStock: formData.has('inStock')
+  };
   
-  // Add to products array
-  products.push(newProduct);
-  
-  // Refresh the display to show the new product
-  const productContainer = document.getElementsByClassName("main__productsCont")[0] as HTMLElement;
-  if (productContainer) {
-    productContainer.innerHTML = ''; // Clear existing products
-    displayProducts(); // Re-display all products including the new one
-  }
-  
-  // Clear the form
-  form.reset();
-  
-  // Optional: Show success message
-  console.log(`Added new product: ${newProduct.productName}`);
-  
-  // Optional: Scroll to see the new product
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  console.log('Product data:', data);
 }
 
+(window as any).handleSubmit = handleSubmit;
 
 
+export function createMain(): string{
+  return `
+<main class="main">
+  <section class="main__header">
+    <h2 class="main__title">Our selected pastries!</h2>
+  </section>
+
+  <section class="product-list main__productsCont" id="products"></section>
+
+  <section class="copyright-section">
+    <span class="copyright-section__text">
+      © 2025
+      <a class="copyright-section__link"
+         href="https://www.boutiquenic.com/" target="_blank" rel="noopener noreferrer">
+        boutiquenic.com
+      </a> 🍰 All images are reserved
+    </span>
+  </section>  
+</main>`
+}
+export function createNavBar(): string {
+  return `
+<div class="nav-bar">
+  <div class="nav-bar__start">
+    <a class="nav-bar__logo navbar-brand" href="./index.html"></a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto nav-bar__menu">
+        <li class="nav-item nav-bar__item nav-bar__item--active">
+          <a class="nav-link nav-bar__link" href="#" aria-current="page">
+            Home <span class="sr-only">(current)</span>
+          </a>
+        </li> 
+
+        <li class="nav-item nav-bar__item">
+          <a class="nav-link nav-bar__link" href="#">About</a>
+        </li>
+
+        <li class="nav-item dropdown nav-bar__item nav-bar__item--languages">
+          <a class="nav-link dropdown-toggle nav-bar__link" href="#" id="navbarDropdown"
+             role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Languages
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#"><span class="fi fi-us"></span> English</a>
+            <a class="dropdown-item" href="#"><span class="fi fi-il"></span> Hebrew</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav-bar__right navBar__right">
+    <button class="nav-bar__cart-btn navBar__right--cart" aria-label="Open cart" onclick="toggleCart()">
+      <i class="fas fa-cart-shopping"></i>
+    </button>
+  </div>
+</div>
+`;
+}

@@ -47,6 +47,18 @@
   <footer id="adminPanelFooter">
 
   </footer>
+ 
+<div id="cartModal" class="cart-modal" style="display: none;">
+  <div class="cart-modal-content">
+    <span class="close-cart">&times;</span>
+    <h2>Shopping Cart</h2>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+      Total: <span id="totalAmount">0</span> ₪
+    </div>
+    <button onclick="checkout()" class="checkout-btn">Checkout</button>
+  </div>
+</div>
 
 </body>
 </html>
