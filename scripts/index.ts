@@ -9,6 +9,14 @@ import { createMain } from "./mainProductCards.js";
 // imported Footer* 
 import { createAdminPanelFooter } from "./adminPanel-Footer.js";
 document.querySelector("#adminPanelFooter")!.innerHTML = createAdminPanelFooter();
+
+import { handleSubmit } from './adminPanel-Footer.js';
+
+// Make it available globally for HTML
+(window as any).handleSubmit = handleSubmit;
+
+// Or use it directly in your code
+// handleSubmit(someEvent);
   
 class product {
     public productName: string;
@@ -288,4 +296,8 @@ function addToCart(index: number) {
 document.addEventListener('DOMContentLoaded', () => {
     displayProducts();
 });
-        
+       
+
+
+
+
