@@ -9,5 +9,6 @@
     "esModuleInterop": false,
     "skipLibCheck": true
   },
-  "include": ["scripts/**/*.ts"]
+  "include": ["scripts/**/*.ts"],
+  "exclude": ["scripts/dist"]
 }
